@@ -1,12 +1,10 @@
-import React from "react";
+import MapComponent from "./components/map-component/map-component";
 
 function App() {
   return (
-    <div className="flex justify-center ">
-      <header className="text-2xl">
-        <p className="font-bold underline ">Test task</p>
-      </header>
-    </div>
+    <section className="flex justify-center h-screen w-screen">
+      <MapComponent />
+    </section>
   );
 }
 
