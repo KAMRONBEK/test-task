@@ -377,7 +377,7 @@ function MapComponent() {
     });
 
     if (extent) {
-      map.getView().fit(extent, { padding: [50, 50, 50, 50] });
+      map.getView().adjustZoom(2);
     }
 
     const popupOverlay = new Overlay({
@@ -402,8 +402,15 @@ function MapComponent() {
         setPopupOpen(true);
         popupOverlay.setPosition(coords);
         setIsChanged(false);
+
+        map.getView().animate({
+          center: coords,
+          duration: 500,
+          zoom: 12,
+        });
       } else {
         setPopupOpen(false);
+        map.getView().animate({ zoom: 8 });
       }
     });
 
